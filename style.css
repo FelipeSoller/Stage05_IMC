@@ -1,0 +1,170 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 65.5%;
+  --head-title: #0C3440;
+
+  --input-label: #00453A;
+  --input-text: #212529;
+  --input-background: #DCE2E9;
+  --input-outline: #02799D;
+  --input-border: rgba(73, 80, 87, 0.5);
+  --input-placeholder: rgba(73, 80, 87, 0.5);
+
+  --button-text: white;
+  --button-background: #02799D;
+  --button-hover: #0f5266;
+
+  --error-background: #F03E3E;
+  --error-text: white;
+
+  --modal-background: rgba(0, 0, 0, 0.7);
+}
+
+body {
+  background-color: #040924;
+  font-family: 'Roboto', sans-serif;
+}
+
+body, input, button {
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+
+.container {
+  display: grid;
+  height: 100vh;
+  place-content: center;
+}
+
+.card {
+  padding: 4.8rem 6.4rem 6.4rem;
+  background-color: #FFF;
+  max-width: 44rem;
+  margin-inline: auto;
+  border-radius: 0.6rem;
+  box-shadow: 0rem 0.2rem 0.4rem 0rem rgba(0, 0, 0, 0.10);
+}
+
+.title {
+  font-size: 3.2rem;
+  line-height: 4rem;
+}
+
+form {
+  width: 30rem;
+}
+
+form h1 {
+  margin-bottom: 3.2rem;
+  color: var(--head-title);
+}
+
+form label {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  color: var(--input-label);
+  margin-bottom: .8rem;
+  display: block;
+}
+
+form input {
+  width: 100%;
+  border: 1px solid var(--input-border);
+  background: var(--input-background);
+  border-radius: .4rem;
+  padding: 1.6rem;
+}
+
+form input:hover {
+  outline: 2px solid var(--input-outline);
+}
+
+form input::placeholder {
+  color: var(--input-placeholder)
+}
+
+.input-wrapper + .input-wrapper {
+  margin-top: 1.6rem;
+}
+
+form button {
+  margin-top: 3.2rem;
+  padding: 1.6rem;
+  width: 100%;
+  border: none;
+  border-radius: .4rem;
+  background-color: var(--button-background);
+  color: var(--button-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .8rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background .3s;
+}
+
+form button:hover {
+  background: var(--button-hover)
+}
+
+.modal-wrapper.opened {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-wrapper {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  background: var(--modal-background);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal {
+  position: relative;
+}
+
+.modal button {
+  background: none;
+  border: 0;
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+  cursor: pointer;
+  transition: transform .3s;
+}
+
+.modal button:hover {
+  transform: scale(1.1);
+}
+
+.alert-error.opened {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.alert-error {
+  position: absolute;
+  background-color: var(--error-background);
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: var(--error-text);
+  padding: .8rem 0;
+  font-weight: bold;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-30px);
+  transition: transform .7s;
+}
+
